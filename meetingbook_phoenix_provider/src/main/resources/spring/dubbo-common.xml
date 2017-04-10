@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	    http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- zookeeper配置导入 -->
+	<bean id="zookeeperPropertyLoad"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="order" value="1" />
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+		<property name="location">
+			<value>classpath:zookeeper.properties</value>
+		</property>
+	</bean> 
+
+	<!-- dubbo通用配置 -->
+	<dubbo:application name="meetingbook_phoenix_parent" />
+	<dubbo:registry id="meetingbook_phoenix_zk" protocol="zookeeper"
+		address="${zkAddress}"  />
+	<dubbo:protocol name="dubbo" server="netty" serialization="hessian2" 
+		threadpool="fixed" threads="1200" port="${dubbo.protocol.port}"/>
+		
+	<!-- consumer统一配置 -->
+	<dubbo:consumer timeout="10000" retries="0" check="false"/>
+		
+</beans>
