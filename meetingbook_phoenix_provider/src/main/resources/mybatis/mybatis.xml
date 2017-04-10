@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">  
+<configuration>
+	<!-- <typeAliases> <typeAlias type="com.lc.crm.app.business.user.dto.User" 
+		alias="simpleUser" /> </typeAliases> -->
+
+<!-- properties/settings/typeAliases/typeHandlers/objectFactory/objectWrapperFactory/plugins/environments/databaseIdProvide -->
+
+    <!-- mybatis中不需要再写resultmap,数据库field与对象匹配 -->
+    <settings>  
+        <setting name="mapUnderscoreToCamelCase" value="true" />  
+    </settings>
+     
+	<!-- <plugins>
+		packageName为PageHelper类所在包名
+		<plugin interceptor="com.github.pagehelper.PageHelper">
+			<property name="dialect" value="mysql" />
+		</plugin>
+	</plugins> -->
+</configuration>
