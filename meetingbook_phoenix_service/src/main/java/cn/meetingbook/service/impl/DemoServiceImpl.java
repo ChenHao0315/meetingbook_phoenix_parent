@@ -14,10 +14,11 @@ public class DemoServiceImpl implements DemoService{
 	@Autowired
 	DemoMapper demoMapper;
 
-	@Override
 	public DemoModel findById(int id) throws Exception {
-		
+		// TODO Auto-generated method stub
 		return BeanCopyUtils.copyProperties(demoMapper.findById(id), DemoModel.class);
 	}
+
+	
 
 }
