@@ -3,10 +3,14 @@ package cn.meetingbook.dao.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@EqualsAndHashCode(callSuper = true)
+@Data
 public class BaseEntity extends BasePage implements Serializable {
 
 	private static final long serialVersionUID = -579869141183160315L;

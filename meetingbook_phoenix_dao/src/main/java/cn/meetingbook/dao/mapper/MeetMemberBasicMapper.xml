@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.meetingbook.dao.MeetMemberBasicDao">
+    <resultMap id="BaseResultMap" type="cn.meetingbook.dao.entity.MeetMemberBasic">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="user_name" property="userName" jdbcType="VARCHAR" />
+        <result column="user_nick_name" property="userNickName" jdbcType="VARCHAR" />
+        <result column="password" property="password" jdbcType="VARCHAR" />
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="province" property="province" jdbcType="VARCHAR" />
+        <result column="city" property="city" jdbcType="VARCHAR" />
+        <result column="district" property="district" jdbcType="VARCHAR" />
+        <result column="mail" property="mail" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="INTEGER" />
+        <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+        <result column="read_point" property="readPoint" jdbcType="INTEGER" />
+        <result column="verify_status" property="verifyStatus" jdbcType="INTEGER" />
+        <result column="user_type" property="userType" jdbcType="VARCHAR" />
+        <result column="status" property="status" jdbcType="VARCHAR" />
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id,user_id,user_name,user_nick_name,password,phone,province,city,district,mail,gender,
+        birthday,read_point,verify_status,user_type,status,create_time,update_time
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+
+        SELECT
+          <include refid="Base_Column_List" />
+        FROM
+          meetbook.meet_member_basic
+        WHERE
+          id=#{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>
