@@ -1,6 +1,7 @@
 package cn.meetingbook.dao.entity;
 
 
+import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,6 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  * @author LiLong 2014-7-29
  * 
  */
+@Data
 public class BasePage {
 
 	private Integer pageIndex = 0;
