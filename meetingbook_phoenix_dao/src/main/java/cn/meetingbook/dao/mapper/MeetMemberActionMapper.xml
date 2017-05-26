@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.meetingbook.dao.MeetMemberActionDao">
+    <resultMap id="BaseResultMap" type="cn.meetingbook.dao.entity.MeetMemberAction">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="user_id" property="userId" jdbcType="INTEGER" />
+        <result column="action_type" property="actionType" jdbcType="VARCHAR"/>
+        <result column="action_detail" property="actionDetail" jdbcType="VARCHAR"/>
+        <result column="action_time" property="actionTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,user_id,action_type,action_detail,action_time
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM
+        meetbook.meet_member_action
+        WHERE
+        id=#{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>
