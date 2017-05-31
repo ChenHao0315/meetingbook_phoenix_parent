@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.meetingbook.dao.MeetMemberRequestDao">
+    <resultMap id="BaseResultMap" type="cn.meetingbook.dao.entity.MeetMemberRequest">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="sms_code" property="smsCode" jdbcType="VARCHAR"/>
+        <result column="try_count" property="tryCount" jdbcType="INT"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,phone,sms_code,try_count,create_time,update_time
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM
+          meetbook.meet_member_request
+        WHERE
+          id=#{id,jdbcType=INTEGER}
+    </select>
+
+</mapper>
